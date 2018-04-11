@@ -180,7 +180,7 @@ module.exports = ""
 /***/ "./src/app/contact/contact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n<h1 class=\"my-4\">contact</h1>\n\n\n\n\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n<h1 class=\"my-4\">contact US</h1>\n\n<input type=\"text\" name=\"\" id=\"\">\n\n\n\n\n  </div>\n\n</div>\n"
 
 /***/ }),
 
