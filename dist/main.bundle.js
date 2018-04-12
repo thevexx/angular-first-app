@@ -230,7 +230,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n\n    <div class=\"col-lg-3\">\n      <h1 class=\"my-4\">Shop Name</h1>\n      <div class=\"list-group\">\n        <a href=\"#\" class=\"list-group-item active\">Category 1</a>\n        <a href=\"#\" class=\"list-group-item\">Category 2</a>\n        <a href=\"#\" class=\"list-group-item\">Category 3</a>\n      </div>\n    </div>\n    <!-- /.col-lg-3 -->\n\n    <div class=\"col-lg-9\">\n\n      <div class=\"card mt-4\">\n        <img class=\"card-img-top img-fluid\" src=\"http://placehold.it/900x400\" alt=\"\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">Product Name</h3>\n          <h4>$24.99</h4>\n          <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>\n          <span class=\"text-warning\">★ ★ ★ ★ ☆</span>\n          4.0 stars\n        </div>\n      </div>\n      <!-- /.card -->\n\n      <div class=\"card card-outline-secondary my-4\">\n        <div class=\"card-header\">\n          Product Reviews\n        </div>\n        <div class=\"card-body\">\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>\n          <small class=\"text-muted\">Posted by Anonymous on 3/1/17</small>\n          <hr>\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>\n          <small class=\"text-muted\">Posted by Anonymous on 3/1/17</small>\n          <hr>\n          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>\n          <small class=\"text-muted\">Posted by Anonymous on 3/1/17</small>\n          <hr>\n          <a href=\"#\" class=\"btn btn-success\">Leave a Review</a>\n        </div>\n      </div>\n      <!-- /.card -->\n\n    </div>\n    <!-- /.col-lg-9 -->\n\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n\n\n    <div class=\"col-lg-3\" *ngIf=\"myBoolean\">\n      <h1 class=\"my-4\">Shop Name</h1>\n      <div class=\"list-group\">\n        <a href=\"#\" class=\"list-group-item active\">Category 1</a>\n        <a href=\"#\" class=\"list-group-item\">Category 2</a>\n        <a href=\"#\" class=\"list-group-item\">Category 3</a>\n      </div>\n    </div>\n    <!-- /.col-lg-3 -->\n\n    <div class=\"col-lg-9\">\n        <button (click)=\" hideBtnClick() \" >hide me :D</button>\n\n      <div class=\"card mt-4\" *ngFor=\"let phone of myArray\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">{{ phone.name }}</h3>\n          <h4>$ {{phone.price}}</h4>\n          <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>\n          <span class=\"text-warning\">★ ★ ★ ★ ☆</span>\n          4.0 stars\n        </div>\n      </div>\n      <!-- /.card -->\n\n\n      <!-- /.card -->\n\n    </div>\n    <!-- /.col-lg-9 -->\n\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -252,8 +252,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
+        this.myBoolean = false;
+        this.myArray = [
+            { name: 'Note8', price: 3000 },
+            { name: 'Note5', price: 400 },
+            { name: 'Note7', price: 1200 }
+        ];
     }
     HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent.prototype.hideBtnClick = function () {
+        this.myBoolean = !this.myBoolean;
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -280,7 +289,7 @@ module.exports = ""
 /***/ "./src/app/menu/menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">Start Bootstrap</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"\">Home\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"uppercase\">uppercase</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"contact\">Contact</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">Start Bootstrap</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"\">Home\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"nav-item\"  routerLinkActive=\"active\" *ngIf=\"false\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"uppercase\">uppercase</a>\n        </li>\n        <li class=\"nav-item\"  routerLinkActive=\"active\">\n          <a class=\"nav-link\" href=\"#\" routerLink=\"contact\">Contact</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
